@@ -5,7 +5,10 @@
 
 <h1>Hellow World !!!!!! this {{name}}</h1>
 
-<form action="add">
+<form action="add" method="post"> <!-- by default it is get method-->
+
+    {% csrf_token %}   <!--csrf security system-->
+ 
     Enter 1st number : <input type="text" name="num1"><br>
     Enter 2nd number : <input type="text" name="num2"><br>
     <input type="Submit">
