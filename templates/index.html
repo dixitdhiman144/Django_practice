@@ -1,4 +1,5 @@
 {% load static %}   <!-- this is Jinja tags-->
+{% static "images" as baseURL %} <!--when ever you want to use this "image" use baseURL this baseURL becomes variable-->
 <!DOCTYPE html> 
 <html lang="en">
 
@@ -282,7 +283,7 @@
 							<!-- Destination -->
 							<div class="destination item">
 								<div class="destination_image">
-									<img src="{% static 'images/destination_1.jpg' %}" alt="">
+									<img src="{{baseURL}}/{{dest.img}}" alt="">
 									<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
 								</div>
 								<div class="destination_content">
