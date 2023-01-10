@@ -7,6 +7,16 @@ def index(request):
     dest1 = Destination()
     dest1.name = 'Haryana'
     dest1.price = 755
-    dest1.desc = 'The Wonderfull State'
-    
-    return render(request, "index.html", {'dest1':dest1})
+    dest1.desc = 'States of Wrestlers and Boxers'
+
+    dest2 = Destination()
+    dest2.name = 'Karnataka'
+    dest2.price = 955
+    dest2.desc = 'First states of India where electricity comes'
+
+    dest3 = Destination()
+    dest3.name = 'Chandigarh'
+    dest3.price = 855
+    dest3.desc = 'The Beautiful City'
+
+    return render(request, "index.html", {'dest1':dest1, 'dest2':dest2, 'dest3':dest3 })
