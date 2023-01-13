@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'travello.apps.TravelloConfig', # because error RuntimeError: Model class travello.models.Destination doesn't declare an explicit app_label and isn't in an application in INSTALLED_APPS.
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -76,8 +77,13 @@ WSGI_APPLICATION = 'django_projects.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'dixitdhiman',
+        'USER' : 'root',
+        'PASSWORD' : '1234',
+        'HOST' : 'localhost'
+        #'PORT' : '3306'
+        #'OPTIONS' : {'init_command':"SET sql_mode='STRICT_TRANS_TABLES'"}
     }
 }
 
