@@ -3,6 +3,21 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 # Create your views here.
 
+def login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+            return redirect('/')
+        else:
+            messages.info('Incorrect Credentials')
+            redirect('login')
+    else:
+        return render(request, 'login.html')
+
 def register(request):
     if request.method == 'POST':
         first_name = request.POST['first_name']
@@ -25,7 +40,7 @@ def register(request):
                 user = User.objects.create_user(first_name=first_name , last_name=last_name, username=username, email=email, password=password_1)
                 user.save();
                 print('new user is created')
-                return redirect('/')
+                return redirect('login')
             pass
         else:
             print('Password is not matching')
